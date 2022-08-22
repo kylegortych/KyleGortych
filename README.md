@@ -18,12 +18,7 @@
       </a>
     </div>
   </div>
-  <h1>
-  hey there
-  <div>
-  <img src="https://blog.joypixels.com/content/images/2019/06/waving_hand_sign_1024.gif" width="20%"/>
-  </div>
-  </h1>
+  <h1 align="center">hey there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="40"></h1>
 </div>
 
 :man_technologist: About Me :
