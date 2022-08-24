@@ -9,6 +9,8 @@
         <img src="https://img.shields.io/badge/gitlab-white?style=plastic&logo=gitlab&logoColor=black" height="20" alt="Gitlab Badge"/>
       </a>
     </div>
+    <details>
+    <summary>Main Repos</summary>
     <div>
       <a href="https://github.com/KyleGortych/dotfiles">
         <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="20" alt="dotfiles repo"/>
@@ -18,6 +20,7 @@
       </a>
     </div>
   </div>
+  </details>
   <h1 align="center">hey there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="40"></h1>
 </div>
 
@@ -90,7 +93,7 @@ I’m Kyle, I am a student at MxCC CT.
 
 ---
 
-### :writing_hand: Blog Posts & Gitpages:
+### :writing_hand: Portfolio & Other Gitpages:
 
 - <a href="https://kylegortych.github.io/">My main site</a>
 
