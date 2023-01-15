@@ -85,11 +85,8 @@ I’m Kyle, I am a student at MxCC CT.
 </details>
 
 <details>
-<summary>OS</summary>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" title="Linux" alt="Linux" width="40" height="40"/>&nbsp;
-  <img src="https://www.icons101.com/icons/96/Simple_Dock_Apps_Icons_by_Turhothgor/128/Libre-Office.png" title="Libreoffice" alt="Libreoffice" width="40" height="40"/>&nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/FreeCAD-logo.svg" title="FreeCad" alt="FreeCad" width="40" height="40"/>&nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/KiCad-Logo.svg" title="KiCad" alt="KiCad" width="80" height="40"/>&nbsp;
+  <summary>CAD Work</summary>
+  <img src="https://github.com/KyleGortych/KyleGortych.github.io/blob/main/assets/gifs/animation.gif" alt="gif" width="512"/>
 </details>
 
 ---
