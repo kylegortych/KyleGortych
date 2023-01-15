@@ -1,5 +1,5 @@
 <div id="header" align="center">
-  <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/githubprofile.gif">
+  <img src="" alt="img">
   <div id="badges">
     <div>
       <a href="https://www.linkedin.com/in/kyle-gortych-163449240/">
@@ -108,10 +108,3 @@ I’m Kyle, I am a student at MxCC CT.
 ### :writing_hand: Portfolio & Other Gitpages:
 
 - <a href="https://kylegortych.github.io/">My main site</a>
-
-README inspired by the talented <a href="https://www.sitepoint.com/github-profile-readme/">Nida Khan</a>
-
-<!---
-KyleGortych/KyleGortych is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
