@@ -86,7 +86,7 @@ I’m Kyle, I am a student at MxCC CT.
 
 <details>
   <summary>CAD Work</summary>
-  <img src="https://github.com/KyleGortych/KyleGortych.github.io/blob/main/assets/gifs/animation.gif" alt="gif" width="512"/>
+  <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych.github.io/main/assets/gifs/animation.gif" alt="gif" width="512"/>
 </details>
 
 ---
