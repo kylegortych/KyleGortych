@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych.github.io/main/assets/images/hero.webp" width="512" alt="img">
   <div id="badges">
     <div>
-      <a href="https://www.linkedin.com/in/kyle-gortych-163449240/">
+      <a href="https://www.linkedin.com/in/kylegortych/">
         <img src="https://img.shields.io/badge/LinkedIn-white?style=plastic&logo=linkedin&logoColor=blue" height="20" alt="LinkedIn Badge"/>
       </a>
       <a href="https://gitlab.com/KyleGortych">
