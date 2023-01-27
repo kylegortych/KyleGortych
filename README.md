@@ -24,7 +24,7 @@
   <h1 align="center">hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
 </div>
 
-:man_technologist: About M :
+:man_technologist: About Me :
 
 I’m Kyle, I am a student at MxCC CT.
 - I’m interested in Robotics :robot:, software development, 3d printing, and fpga design
