@@ -26,10 +26,8 @@
 
 :man_technologist: About Me :
 
-I’m Kyle, I am a student at MxCC CT.
-- I’m interested in Robotics :robot:, software development, 3d printing, and fpga design
-- I’m currently learning Python, Java, Rust, and verilog(HDL) for fpga
-- I’m looking to collaborate on ...
+I’m Kyle, I am a Jr. Software Developer.
+- Associate degree in CIT with a focus on Software Development :school:
 - How to reach me <a href="your-gmail-link?">:mailbox:</a>
 
 ---
