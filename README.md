@@ -5,8 +5,8 @@
       <a href="https://www.linkedin.com/in/kylegortych/">
         <img src="https://img.shields.io/badge/LinkedIn-white?style=plastic&logo=linkedin&logoColor=blue" height="20" alt="LinkedIn Badge"/>
       </a>
-      <a href="https://gitlab.com/KyleGortych">
-        <img src="https://img.shields.io/badge/gitlab-white?style=plastic&logo=gitlab" height="20" alt="Gitlab Badge"/>
+      <a href="https://codeberg.org/kylegortych">
+        <img src="https://img.shields.io/badge/codeberg-white?style=plastic&logo=codeberg" height="20" alt="codeberg Badge"/>
       </a>
     </div>
     <details>
