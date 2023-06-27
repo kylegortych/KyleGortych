@@ -11,7 +11,6 @@
     </div>
     <details>
     <summary>Main Repos</summary>
-
     <div>
       <a href="https://github.com/KyleGortych/dotfiles">
         <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="20" alt="dotfiles repo"/>
