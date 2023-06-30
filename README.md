@@ -68,7 +68,7 @@ I’m Kyle, I am a Jr. Software Developer.
   <img src="https://envescent.com/wp-content/uploads/2014/07/apache_logo.jpg" title="apache" alt="apache" height="40"/>&nbsp;
 </div>
 <div>
-  <img src="https://guinuxbr.com/img/debian-windows10-wsl2/wsl2.png" title="wsl" alt="wsl" height="40"/>&nbsp;
+  <img src="https://betanews.com/wp-content/uploads/2021/11/wsl-icon.jpg" title="wsl" alt="wsl" height="40"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="php" alt="php" width="40" height="40"/>&nbsp;
   <img src="https://warren-buckley.gallerycdn.vsassets.io/extensions/warren-buckley/iis-express/1.1.2/1528368326087/Microsoft.VisualStudio.Services.Icons.Default" title="IIS" alt="IIS" width="40" height="40"/>&nbsp;
 </div>
