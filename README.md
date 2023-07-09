@@ -24,7 +24,7 @@
   <h1 align="center">hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
 </div>
 
-:man_technologist: About Me :
+### :man_technologist: About Me :
 
 I’m Kyle, I am a Jr. Software Developer.
 - :school: Have an associate degree in CIT with a focus on Software Development
@@ -66,19 +66,22 @@ I’m Kyle, I am a Jr. Software Developer.
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="php" alt="php" width="40" height="40"/>&nbsp;
   <img src="https://warren-buckley.gallerycdn.vsassets.io/extensions/warren-buckley/iis-express/1.1.2/1528368326087/Microsoft.VisualStudio.Services.Icons.Default" title="IIS" alt="IIS" width="40" height="40"/>&nbsp;
   <img src="https://cms-assets.tutsplus.com/legacy-courses/CRS-58300.png" title="django" alt="django" width="40" height="40"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="nix" alt="nix" width="40" height="40"/>&nbsp;
 </div>
 </details>
+
+---
+### :globe_with_meridians: My Website
 
 <details>
 <summary>My Website</summary>
 <div>
-  <img src="" title="screenshot" alt="screenshot" width="512"/>&nbsp;
+  <img src="./Screenshot_20230708_224913.png" title="screenshot" alt="screenshot" width="512"/>&nbsp;
 </div>
 <div>
-  - <a href="https://kylegortych.github.io/">My main site</a>
+  <a href="https://kylegortych.github.io/">My main site</a>
 </div>
 </details>
-
 
 ---
 
