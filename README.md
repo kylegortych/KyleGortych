@@ -37,38 +37,51 @@ I’m Kyle, I am a Jr. Software Developer.
 ### :hammer_and_wrench: Tools :
 <details>
 <summary>Version Control</summary>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" title="Git" **alt="Git" width="40" height="40"/>
-</details>
-<details>
-<summary>Languages</summary>
-<div>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Rust.svg" title="Rust" alt="Rust" width="40" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original-wordmark.svg" title="Go" alt="Go" width="40" height="40"/>&nbsp;
+  
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" title="Git" **alt="Git" width="40" height="40"/>
 </div>
 
-<div>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-  <img src="https://cdn3.iconfinder.com/data/icons/dompicon-flat-file-format/256/file-sql-format-type-512.png" title="SQL"  alt="SQL" width="40" height="40"/>&nbsp;
+</details>
+
+<details>
+<summary>Languages</summary>
+
+<div align="center">
+  <div>
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Rust.svg" title="Rust" alt="Rust" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original-wordmark.svg" title="Go" alt="Go" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="nix" alt="nix" width="40" height="40"/>&nbsp;
+  </div>
+  
+  <div>
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
+    <img src="https://cdn3.iconfinder.com/data/icons/dompicon-flat-file-format/256/file-sql-format-type-512.png" title="SQL"  alt="SQL" width="40" height="40"/>&nbsp;
+  </div>
 </div>
 
 </details>
 
 <details>
 <summary>Server Managment</summary>
-<div>
-  <img src="https://envescent.com/wp-content/uploads/2014/07/apache_logo.jpg" title="apache" alt="apache" height="40"/>&nbsp;
+
+<div align="center">
+  <div>
+    <img src="https://envescent.com/wp-content/uploads/2014/07/apache_logo.jpg" title="apache" alt="apache" height="40"/>&nbsp;
+  </div>
+  <div>
+    <img src="https://betanews.com/wp-content/uploads/2021/11/wsl-icon.jpg" title="wsl" alt="wsl" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="php" alt="php" width="40" height="40"/>&nbsp;
+    <img src="https://warren-buckley.gallerycdn.vsassets.io/extensions/warren-buckley/iis-express/1.1.2/1528368326087/Microsoft.VisualStudio.Services.Icons.Default" title="IIS" alt="IIS" width="40" height="40"/>&nbsp;
+    <img src="https://cms-assets.tutsplus.com/legacy-courses/CRS-58300.png" title="django" alt="django" width="40" height="40"/>&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="NixOS" alt="NixOS" width="40" height="40"/>&nbsp;
+  </div>
 </div>
-<div>
-  <img src="https://betanews.com/wp-content/uploads/2021/11/wsl-icon.jpg" title="wsl" alt="wsl" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="php" alt="php" width="40" height="40"/>&nbsp;
-  <img src="https://warren-buckley.gallerycdn.vsassets.io/extensions/warren-buckley/iis-express/1.1.2/1528368326087/Microsoft.VisualStudio.Services.Icons.Default" title="IIS" alt="IIS" width="40" height="40"/>&nbsp;
-  <img src="https://cms-assets.tutsplus.com/legacy-courses/CRS-58300.png" title="django" alt="django" width="40" height="40"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="nix" alt="nix" width="40" height="40"/>&nbsp;
-</div>
+
 </details>
 
 ---
@@ -76,12 +89,17 @@ I’m Kyle, I am a Jr. Software Developer.
 
 <details>
 <summary>My Website</summary>
-<div>
-  <img src="./Screenshot_20230708_224913.png" title="screenshot" alt="screenshot" width="512"/>&nbsp;
-</div>
-<div>
-  <a href="https://kylegortych.github.io/">My main site</a>
-</div>
+  
+  <div id="badges" align="center">
+    <div>
+      <img src="./Screenshot_20230708_224913.png" title="screenshot" alt="screenshot" width="512"/>&nbsp;
+    </div>
+    <div>
+      <a href="https://kylegortych.github.io/">
+        <img src="https://img.shields.io/badge/My Website-white?style=plastic&logo=bob" height="20" alt="Website Badge"/>
+      </a>
+    </div>
+  </div>
 </details>
 
 ---
