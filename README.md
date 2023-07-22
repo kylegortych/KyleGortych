@@ -67,13 +67,13 @@ I’m Kyle, I am a Jr. Software Developer.
 <p align="center">Server Managment</p>
 <div align="center">
   <div>
-    <img src="https://envescent.com/wp-content/uploads/2014/07/apache_logo.jpg" title="apache" alt="apache" height="40"/>&nbsp;
+    <img src="https://img.shields.io/badge/Apache-white?style=plastic&logo=apache&logoColor=red" title="apache" alt="apache" height="30"/>&nbsp;
   </div>
   <div>
-    <img src="https://betanews.com/wp-content/uploads/2021/11/wsl-icon.jpg" title="wsl" alt="wsl" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="php" alt="php" width="40" height="40"/>&nbsp;
+    <img src="https://img.shields.io/badge/PowerShell-white?style=plastic&logo=powershell&logoColor=blue" title="PowerShell" alt="PowerShell" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/WSL-white?style=plastic&logo=linux&logoColor=black" title="wsl" alt="wsl" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/PHP-white?style=plastic&logo=php&logoColor=blue" title="php" alt="php" height="30"/>&nbsp;
     <img src="https://warren-buckley.gallerycdn.vsassets.io/extensions/warren-buckley/iis-express/1.1.2/1528368326087/Microsoft.VisualStudio.Services.Icons.Default" title="IIS" alt="IIS" width="40" height="40"/>&nbsp;
-    <img src="https://cms-assets.tutsplus.com/legacy-courses/CRS-58300.png" title="django" alt="django" width="40" height="40"/>&nbsp;
     <img src="https://img.shields.io/badge/NixOS-white?style=plastic&logo=nixos&logoColor=blue" title="NixOS" alt="NixOS" height="30"/>&nbsp;
   </div>
 </div>
