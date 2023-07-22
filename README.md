@@ -27,7 +27,7 @@
 ### :man_technologist: About Me :
 
 I’m Kyle, I am a Jr. Software Developer.
-- :school: Have an associate degree in CIT with a focus on Software Development
+- :school: Earned an associate degree in Computer Information Technology(CIT) with a focus on Software Development
 - :scroll: Working on Certificate in Python from eCornell
 - :scroll: Working on Certificate in Software Enginering Backend Development from Kenzie Academy
 - <a href="your-gmail-link?">:mailbox:</a> How to reach me 
