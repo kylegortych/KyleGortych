@@ -39,7 +39,7 @@ I’m Kyle, I am a Jr. Software Developer.
 <h3 align="center">Version Control</h3>
 
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" title="Git" **alt="Git" width="40" height="40"/>
+  <img src="https://img.shields.io/badge/Git-white?style=plastic&logo=git&logoColor=red" title="Git" alt="Git" height="30"/>
 </div>
 
 <br>
