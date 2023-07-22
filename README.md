@@ -35,9 +35,9 @@ I’m Kyle, I am a Jr. Software Developer.
 ---
 
 ### :hammer_and_wrench: Tools :
-Version Control
-  
+
 <div align="center">
+Version Control
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" title="Git" **alt="Git" width="40" height="40"/>
 </div>
 
