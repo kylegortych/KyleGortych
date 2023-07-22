@@ -36,7 +36,7 @@ I’m Kyle, I am a Jr. Software Developer.
 
 ### :hammer_and_wrench: Tools :
 
-<p align="center">Version Control</p>
+<p style="text-align: center; font-size: 24px;">Version Control</p>
 
 <div align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" title="Git" **alt="Git" width="40" height="40"/>
@@ -44,7 +44,7 @@ I’m Kyle, I am a Jr. Software Developer.
 
 <br>
 
-<p align="center">Languages</p>
+<p style="text-align: center; font-size: 24px;">Languages</p>
 <div align="center">
   <div>
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
@@ -64,7 +64,7 @@ I’m Kyle, I am a Jr. Software Developer.
 
 <br>
 
-<p align="center">Server Managment</p>
+<p style="text-align: center; font-size: 24px;">Server Managment</p>
 <div align="center">
   <div>
     <img src="https://img.shields.io/badge/Apache-white?style=plastic&logo=apache&logoColor=red" title="apache" alt="apache" height="30"/>&nbsp;
