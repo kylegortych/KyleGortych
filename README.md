@@ -44,7 +44,7 @@ I’m Kyle, I am a Jr. Software Developer.
 
 <br>
 
-<p style="text-align: center; font-size: 24px;">Languages</p>
+<h3 align="center">Languages</h3>
 <div align="center">
   <div>
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
@@ -64,7 +64,7 @@ I’m Kyle, I am a Jr. Software Developer.
 
 <br>
 
-<p style="text-align: center; font-size: 24px;">Server Managment</p>
+<h3 align="center">Server Managment</h3>
 <div align="center">
   <div>
     <img src="https://img.shields.io/badge/Apache-white?style=plastic&logo=apache&logoColor=red" title="apache" alt="apache" height="30"/>&nbsp;
