@@ -2,6 +2,11 @@
   <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych.github.io/main/assets/images/hero.webp" width="512" alt="img">
   <div id="badges">
     <div>
+      <a href="https://kylegortych.github.io/">
+        <img src="https://custom-icon-badges.demolab.com/badge/My%20Website-white.svg?&sytle=plastic&logo=globe&logoColor=blue" height="20" alt="Website Badge"/>
+      </a>
+    </div>
+    <div>
       <a href="https://www.linkedin.com/in/kylegortych/">
         <img src="https://img.shields.io/badge/LinkedIn-white?style=plastic&logo=linkedin&logoColor=blue" height="20" alt="LinkedIn Badge"/>
       </a>
@@ -77,20 +82,6 @@ I’m Kyle, I am a Jr. Software Developer.
     <img src="https://img.shields.io/badge/NixOS-white?style=plastic&logo=nixos&logoColor=blue" title="NixOS" alt="NixOS" height="30"/>&nbsp;
   </div>
 </div>
-
----
-### My Website:
-
-  <div id="badges" align="center">
-    <div>
-      <img src="./Screenshot_20230708_224913.png" title="screenshot" alt="screenshot" width="512"/>&nbsp;
-    </div>
-    <div>
-      <a href="https://kylegortych.github.io/">
-        <img src="https://custom-icon-badges.demolab.com/badge/My%20Website-white.svg?&sytle=plastic&logo=globe&logoColor=blue" height="20" alt="Website Badge"/>
-      </a>
-    </div>
-  </div>
 
 ---
 
