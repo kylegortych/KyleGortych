@@ -21,7 +21,7 @@
     </div>
   </div>
   </details>
-  <h1 align="center">hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
+  <h1 align="center">Hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
 </div>
 
 ### :man_technologist: About Me :
