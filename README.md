@@ -48,7 +48,7 @@ I’m Kyle, I am a Jr. Software Developer.
 <div align="center">
   <div>
     <img src="https://img.shields.io/badge/Python-white?style=plastic&logo=python&logoColor=blue" title="Python" alt="Python" height="30"/>&nbsp;
-    <img src="https://img.shields.io/badge/Java-white?style=plastic&logo=java&logoColor=black" title="Java" alt="Java" height="30"/>&nbsp;
+    <img src="https://custom-icon-badges.demolab.com/badge/Java-white.svg?&sytle=plastic&logo=java" title="Java" alt="Java" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/Rust-white?style=plastic&logo=Rust&logoColor=red" title="Rust" alt="Rust" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/GoLang-white?style=plastic&logo=go&logoColor=blue" title="Go" alt="Go" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/nix-white?style=plastic&logo=nixos&logoColor=blue" title="nix" alt="nix" height="30"/>&nbsp;
