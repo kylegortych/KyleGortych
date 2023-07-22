@@ -47,18 +47,18 @@ I’m Kyle, I am a Jr. Software Developer.
 <h3 align="center">Languages</h3>
 <div align="center">
   <div>
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Rust.svg" title="Rust" alt="Rust" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original-wordmark.svg" title="Go" alt="Go" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="nix" alt="nix" width="40" height="40"/>&nbsp;
+    <img src="https://img.shields.io/badge/Python-white?style=plastic&logo=python&logoColor=blue" title="Python" alt="Python" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/Java-white?style=plastic&logo=nixos&logoColor=black" title="Java" alt="Java" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/Rust-white?style=plastic&logo=Rust&logoColor=red" title="Rust" alt="Rust" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/GoLang-white?style=plastic&logo=nixos&logoColor=blue" title="Go" alt="Go" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/nix-white?style=plastic&logo=nixos&logoColor=blue" title="nix" alt="nix" height="30"/>&nbsp;
   </div>
   
   <div>
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-    <img src="https://cdn3.iconfinder.com/data/icons/dompicon-flat-file-format/256/file-sql-format-type-512.png" title="SQL"  alt="SQL" width="40" height="40"/>&nbsp;
+    <img src="https://img.shields.io/badge/HTML-white?style=plastic&logo=html5&logoColor=red" title="HTML5" alt="HTML" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/CSS-white?style=plastic&logo=css3&logoColor=blue"  title="CSS3" alt="CSS" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/javascript-white?style=plastic&logo=javascript&logoColor=yellow" title="JavaScript" alt="JavaScript" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/MySQL-white?style=plastic&logo=mysql&logoColor=blue" title="SQL"  alt="SQL" height="30"/>&nbsp;
   </div>
 </div>
 
