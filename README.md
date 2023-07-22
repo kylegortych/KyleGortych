@@ -74,7 +74,7 @@ I’m Kyle, I am a Jr. Software Developer.
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" title="php" alt="php" width="40" height="40"/>&nbsp;
     <img src="https://warren-buckley.gallerycdn.vsassets.io/extensions/warren-buckley/iis-express/1.1.2/1528368326087/Microsoft.VisualStudio.Services.Icons.Default" title="IIS" alt="IIS" width="40" height="40"/>&nbsp;
     <img src="https://cms-assets.tutsplus.com/legacy-courses/CRS-58300.png" title="django" alt="django" width="40" height="40"/>&nbsp;
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="NixOS" alt="NixOS" width="40" height="40"/>&nbsp;
+    <img src="https://img.shields.io/badge/NixOS-white?style=plastic&logo=nixos&logoColor=blue" title="NixOS" alt="NixOS" width="40" height="40"/>&nbsp;
   </div>
 </div>
 
