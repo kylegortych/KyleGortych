@@ -79,11 +79,8 @@ I’m Kyle, I am a Jr. Software Developer.
 </div>
 
 ---
-### :globe_with_meridians: My Website
+### My Website:
 
-<details>
-<summary>My Website</summary>
-  
   <div id="badges" align="center">
     <div>
       <img src="./Screenshot_20230708_224913.png" title="screenshot" alt="screenshot" width="512"/>&nbsp;
@@ -94,7 +91,6 @@ I’m Kyle, I am a Jr. Software Developer.
       </a>
     </div>
   </div>
-</details>
 
 ---
 
