@@ -35,17 +35,13 @@ I’m Kyle, I am a Jr. Software Developer.
 ---
 
 ### :hammer_and_wrench: Tools :
-<details>
-<summary>Version Control</summary>
+Version Control
   
 <div align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" title="Git" **alt="Git" width="40" height="40"/>
 </div>
 
-</details>
-
-<details>
-<summary>Languages</summary>
+Languages
 
 <div align="center">
   <div>
@@ -64,10 +60,7 @@ I’m Kyle, I am a Jr. Software Developer.
   </div>
 </div>
 
-</details>
-
-<details>
-<summary>Server Managment</summary>
+Server Managment
 
 <div align="center">
   <div>
@@ -81,8 +74,6 @@ I’m Kyle, I am a Jr. Software Developer.
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" title="NixOS" alt="NixOS" width="40" height="40"/>&nbsp;
   </div>
 </div>
-
-</details>
 
 ---
 ### :globe_with_meridians: My Website
