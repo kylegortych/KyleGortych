@@ -90,7 +90,7 @@ I’m Kyle, I am a Jr. Software Developer.
     </div>
     <div>
       <a href="https://kylegortych.github.io/">
-        <img src="https://img.shields.io/badge/My Website-white?style=plastic&logo=bob" height="20" alt="Website Badge"/>
+        <img src="https://custom-icon-badges.demolab.com/badge/My%20Website-white.svg?&sytle=plastic&logo=globe&logoColor=blue" height="20" alt="Website Badge"/>
       </a>
     </div>
   </div>
