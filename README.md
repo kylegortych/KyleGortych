@@ -41,14 +41,6 @@ I’m Kyle, I am a Jr. Software Developer.
 
 ### :hammer_and_wrench: Tools :
 
-<h3 align="center">Version Control</h3>
-
-<div align="center">
-  <img src="https://img.shields.io/badge/Git-white?style=plastic&logo=git&logoColor=red" title="Git" alt="Git" height="30"/>
-</div>
-
-<br>
-
 <h3 align="center">Languages</h3>
 <div align="center">
   <div>
@@ -64,6 +56,16 @@ I’m Kyle, I am a Jr. Software Developer.
     <img src="https://img.shields.io/badge/CSS-white?style=plastic&logo=css3&logoColor=blue"  title="CSS3" alt="CSS" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/javascript-white?style=plastic&logo=javascript&logoColor=yellow" title="JavaScript" alt="JavaScript" height="30"/>&nbsp;
   </div>
+</div>
+
+<br>
+
+<h3 align="center">Kenzie Accademy Stack</h3>
+<div align="center">
+  
+| Cloud service | Build System | Languages | Data Base | Virtulization |
+| ------------- | ------------ | --------- | --------- | ------------- |
+| <img src="https://img.shields.io/badge/AWS-white?style=plastic&logo=amazon-aws&logoColor=black" title="AWS" alt="AWS" height="30"/> | <img src="https://img.shields.io/badge/Gradle-white?style=plastic&logo=gradle&logoColor=black" title="gradle" alt="gradle" height="30"/> | <img src="https://custom-icon-badges.demolab.com/badge/Java-white.svg?&sytle=plastic&logo=java" title="Java" alt="Java" height="30"/> | <img src="https://img.shields.io/badge/DynamoDB-white?style=plastic&logo=Amazon%20DynamoDB&logoColor=black" title="dynamodb" alt="dynamodb" height="30"/> | <img src="https://img.shields.io/badge/Docker-white?style=plastic&logo=docker&logoColor=blue" title="docker" alt="docker" height="30"/> |
 </div>
 
 <br>
