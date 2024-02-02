@@ -89,5 +89,7 @@ I’m Kyle, I am a Jr. Software Developer.
   
   [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KyleGortych&hide=lua,coq,apl,nu,nix,verilog&theme=dark&layout=compact&langs_count=10)](https://github.com/anuraghazra/github-readme-stats)
 
+  ![Kyle's GitHub stats](https://github-readme-stats.vercel.app/api?username=kylegortych&show_icons=true&theme=dracula&bg_color=171717&title_color=cc0000&show=prs_merged&hide_rank=true&hide=stars)
+
   [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=KyleGortych&theme=dark&date_format=M%20j%5B%2C%20Y%5D)](https://git.io/streak-stats)
 </div>
