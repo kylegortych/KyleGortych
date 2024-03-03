@@ -44,9 +44,13 @@ I’m Kyle, I am a Jr. Software Developer.
 <h3 align="center">Kenzie Accademy Stack</h3>
 <div align="center">
   
-| Cloud service | Build System | Languages | Database | Virtulization |
-| ------------- | ------------ | --------- | --------- | ------------- |
-| <img src="https://img.shields.io/badge/AWS-white?style=plastic&logo=amazon-aws&logoColor=black" title="AWS" alt="AWS" height="30"/> | <img src="https://img.shields.io/badge/Gradle-white?style=plastic&logo=gradle&logoColor=black" title="gradle" alt="gradle" height="30"/> | <img src="https://custom-icon-badges.demolab.com/badge/Java-white.svg?&sytle=plastic&logo=java" title="Java" alt="Java" height="30"/> | <img src="https://img.shields.io/badge/DynamoDB-white?style=plastic&logo=Amazon%20DynamoDB&logoColor=black" title="dynamodb" alt="dynamodb" height="30"/> | <img src="https://img.shields.io/badge/Docker-white?style=plastic&logo=docker&logoColor=blue" title="docker" alt="docker" height="30"/> |
+| Cloud service | Build System | Languages | framework |
+| ------------- | ------------ | --------- | --------- |
+| <img src="https://img.shields.io/badge/AWS-white?style=plastic&logo=amazon-aws&logoColor=black" title="AWS" alt="AWS" height="30"/> | <img src="https://img.shields.io/badge/Gradle-white?style=plastic&logo=gradle&logoColor=black" title="gradle" alt="gradle" height="30"/> | <img src="https://custom-icon-badges.demolab.com/badge/Java-white.svg?sytle=plastic&logo=java" title="Java" alt="Java" height="30"/> | <img src="https://img.shields.io/badge/Spring%20Boot-white?style=plastic&logo=Spring%20Boot&logoColor=green" title="Spring Boot" alt="Spring Boot" height="30"/> |
+
+| Dependancy Injection | Caching | Database | Virtulization |
+| -------------------- |---------| -------- | ------------- |
+| <img src="https://img.shields.io/badge/%F0%9F%97%A1%20Dagger-white?style=plastic" title="Dagger" alt="Dagger" height="30"/> | <img src="https://img.shields.io/badge/Jedis%2FRedis-white?style=plastic&logo=redis&logoColor=dark%20red" title="Jedis" alt="Jedis" height="30"/> | <img src="https://img.shields.io/badge/DynamoDB-white?style=plastic&logo=Amazon%20DynamoDB&logoColor=black" title="dynamodb" alt="dynamodb" height="30"/> | <img src="https://img.shields.io/badge/Docker-white?style=plastic&logo=docker&logoColor=blue" title="docker" alt="docker" height="30"/> |
 </div>
 
 <h3 align="center">Server Managment Stack</h3>
@@ -59,20 +63,19 @@ I’m Kyle, I am a Jr. Software Developer.
 </div>
 
 
-<h3 align="center">Misc. Languages</h3>
+<h3 align="center">Misc.</h3>
 <div align="center">
-  <div>
-    <img src="https://img.shields.io/badge/Python-white?style=plastic&logo=python&logoColor=blue" title="Python" alt="Python" height="30"/>&nbsp;
-    <img src="https://custom-icon-badges.demolab.com/badge/Java-white.svg?&sytle=plastic&logo=java" title="Java" alt="Java" height="30"/>&nbsp;
-    <img src="https://img.shields.io/badge/Rust-white?style=plastic&logo=Rust&logoColor=red" title="Rust" alt="Rust" height="30"/>&nbsp;
-    <img src="https://img.shields.io/badge/GoLang-white?style=plastic&logo=go&logoColor=blue" title="Go" alt="Go" height="30"/>&nbsp;
-    <img src="https://img.shields.io/badge/nix-white?style=plastic&logo=nixos&logoColor=blue" title="nix" alt="nix" height="30"/>&nbsp;
-  </div>
-  
-  <div>
+<div>
     <img src="https://img.shields.io/badge/HTML-white?style=plastic&logo=html5&logoColor=red" title="HTML5" alt="HTML" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/CSS-white?style=plastic&logo=css3&logoColor=blue"  title="CSS3" alt="CSS" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/javascript-white?style=plastic&logo=javascript&logoColor=yellow" title="JavaScript" alt="JavaScript" height="30"/>&nbsp;
+  </div>
+  
+  <div>
+    <img src="https://img.shields.io/badge/Python-white?style=plastic&logo=python&logoColor=blue" title="Python" alt="Python" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/Rust-white?style=plastic&logo=Rust&logoColor=red" title="Rust" alt="Rust" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/GoLang-white?style=plastic&logo=go&logoColor=blue" title="Go" alt="Go" height="30"/>&nbsp;
+    <img src="https://img.shields.io/badge/nix-white?style=plastic&logo=nixos&logoColor=blue" title="nix" alt="nix" height="30"/>&nbsp;
   </div>
 </div>
 
