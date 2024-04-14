@@ -29,7 +29,7 @@
   <h1 align="center">Hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
 </div>
 
-### :man_technologist: AboutMe :
+### :man_technologist: About Me :
 
 I’m Kyle, I am a Jr. Software Developer.
 - :school: Earned an associate degree in Computer Information Technology(CIT) with a focus on Software Development
