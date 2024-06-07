@@ -32,9 +32,10 @@
 ### :man_technologist: About Me :
 
 I’m Kyle, I am a Jr. Software Developer.
-- :school: Earned an associate degree in Computer Information Technology(CIT) with a focus on Software Development
+#### :school: Education
+- :scroll: Associate degree in Computer Information Technology(CIT) from Middlesex Community College
 - :scroll: Certificate in Python from eCornell
-- :scroll: Working on Certificate in Software Enginering Backend Development from Kenzie Academy
+- :scroll: Certificate in Software Enginering Backend Development from Kenzie Academy
 - <a href="your-gmail-link?">:mailbox:</a> How to reach me 
 
 ---
