@@ -1,5 +1,5 @@
 <div id="header" align="center">
-  <img src="https://raw.githubusercontent.com/kylegortych/KyleGortych.github.io/main/img/hero.webp" width="100%" alt="img">
+  <img src="https://raw.githubusercontent.com/kylegortych/KyleGortych/refs/heads/main/hero.jpg" width="100%" alt="img">
   <div id="badges">
     <div>
       <a href="https://kylegortych.github.io/">
