@@ -1,33 +1,41 @@
 <div id="header" align="center">
   <img src="https://raw.githubusercontent.com/kylegortych/KyleGortych/refs/heads/main/hero.gif" width="100%" alt="img">
-  <div id="badges">
-    <div>
-      <a href="https://kylegortych.github.io/">
-        <img src="https://custom-icon-badges.demolab.com/badge/My%20Website-white.svg?&sytle=plastic&logo=globe&logoColor=blue" height="20" alt="Website Badge"/>
-      </a>
-    </div>
-    <div>
-      <a href="https://www.linkedin.com/in/kylegortych/">
-        <img src="https://img.shields.io/badge/LinkedIn-white?style=plastic&logo=linkedin&logoColor=blue" height="20" alt="LinkedIn Badge"/>
-      </a>
-      <a href="https://codeberg.org/kylegortych">
-        <img src="https://img.shields.io/badge/codeberg-white?style=plastic&logo=codeberg" height="20" alt="codeberg Badge"/>
-      </a>
-    </div>
-    <details>
-    <summary>Main Repos</summary>
+</div>
+<br><br><br>
+<!-- Centered badges -->
+<div align="center" id="badges">
+  <a href="https://kylegortych.github.io/">
+    <img src="https://img.shields.io/badge/My%20Website-white?style=plastic" height="40" alt="Website Badge"/>
+  </a>
+  <a href="https://www.linkedin.com/in/kylegortych/">
+    <img src="https://img.shields.io/badge/LinkedIn-white?style=plastic" height="40" alt="LinkedIn Badge"/>
+  </a>
+</div>
+
+<br>
+
+<!-- Repositories dropdown -->
+<div align="center">
+  <details>
+    <summary><strong>Sample Work</strong></summary>
     <div>
       <a href="https://github.com/KyleGortych/dotfiles">
-        <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="20" alt="dotfiles repo"/>
+        <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="40" alt="dotfiles repo"/>
       </a>
-       <a href="https://github.com/KyleGortych/sample_work">
-        <img src="https://img.shields.io/badge/-Sample%20Work-white?style=plastic&logo=git" height="20" alt="work examples repo"/>
+      <a href="https://github.com/KyleGortych/sample_work">
+        <img src="https://img.shields.io/badge/-Sample%20Work-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
+      </a>
+      <a href="https://github.com/Linux-Distro-Temp">
+        <img src="https://img.shields.io/badge/-DIY%20Linux%20Distro-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
       </a>
     </div>
-  </div>
   </details>
-  <h1 align="center">Hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
 </div>
+
+<br><br>
+
+<h1 align="center">Hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
+
 
 ### :man_technologist: About Me :
 
