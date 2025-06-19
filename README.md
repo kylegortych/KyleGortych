@@ -25,7 +25,7 @@
       <a href="https://github.com/KyleGortych/sample_work">
         <img src="https://img.shields.io/badge/-Sample%20Work-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
       </a>
-      <a href="https://github.com/Linux-Distro-Temp">
+      <a href="https://github.com/NexisOS/NexisOS">
         <img src="https://img.shields.io/badge/-DIY%20Linux%20Distro-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
       </a>
     </div>
