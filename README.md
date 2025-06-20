@@ -44,7 +44,8 @@ I’m Kyle, I am a Jr. Software Developer.
 - :scroll: Associate degree in Computer Information Technology(CIT) from Middlesex Community College
 - :scroll: Certificate in Python from eCornell
 - :scroll: Certificate in Software Enginering Backend Development from Kenzie Academy
-- <a href="your-gmail-link?">:mailbox:</a> How to reach me 
+- :scroll: Pursuing a Bachelor's degree in Computer Science from SNHU
+- :mailbox: How to reach me kyle.gortych.dev@gmail.com
 
 ---
 
