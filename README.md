@@ -4,6 +4,7 @@
 <br><br><br>
 <!-- Centered badges -->
 <div align="center" id="badges">
+  <h3>Sample Work</h3>
   <a href="https://kylegortych.github.io/" target="_blank" rel="noopener noreferrer">
   <img src="https://img.shields.io/badge/🌐%20Website-white?style=plastic"
        height="40"
@@ -15,7 +16,6 @@
 
 <!-- Repositories dropdown -->
 <div align="center">
-    <p>Sample work</p>
     <div>
       <a href="https://github.com/KyleGortych/personal-nixos-configs">
         <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="40" alt="dotfiles repo"/>
