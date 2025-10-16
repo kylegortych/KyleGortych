@@ -4,11 +4,10 @@
 <br><br><br>
 <!-- Centered badges -->
 <div align="center" id="badges">
-  <a href="https://kylegortych.github.io/">
-    <img src="https://img.shields.io/badge/My%20Website-white?style=plastic" height="40" alt="Website Badge"/>
-  </a>
-  <a href="https://www.linkedin.com/in/kylegortych/">
-    <img src="https://img.shields.io/badge/LinkedIn-white?style=plastic" height="40" alt="LinkedIn Badge"/>
+  <a href="https://kylegortych.github.io/" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/🌐%20Website-white?style=plastic"
+       height="40"
+       alt="Website Badge"/>
   </a>
 </div>
 
@@ -16,8 +15,7 @@
 
 <!-- Repositories dropdown -->
 <div align="center">
-  <details>
-    <summary><strong>Sample Work</strong></summary>
+    <p>Sample work</p>
     <div>
       <a href="https://github.com/KyleGortych/personal-nixos-configs">
         <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="40" alt="dotfiles repo"/>
@@ -29,7 +27,6 @@
         <img src="https://img.shields.io/badge/-DIY%20Linux%20Distro-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
       </a>
     </div>
-  </details>
 </div>
 
 <br><br>
