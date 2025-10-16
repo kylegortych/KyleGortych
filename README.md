@@ -20,8 +20,14 @@
       <a href="https://github.com/KyleGortych/personal-nixos-configs">
         <img src="https://img.shields.io/badge/-dotfiles-white?style=plastic&logo=git" height="40" alt="dotfiles repo"/>
       </a>
-      <a href="https://github.com/KyleGortych/sample_work">
-        <img src="https://img.shields.io/badge/-Sample%20Work-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
+      <a href="https://github.com/KyleGortych-Kenzie-Academy-Group-Work">
+        <img src="https://img.shields.io/badge/-Kenzie%20Academy%20Cert-white?style=plastic&logo=git" height="40" alt="Kenzie Academy Cert"/>
+      </a>
+      <a href="https://github.com/KyleGortych-SNHU">
+        <img src="https://img.shields.io/badge/-SNHU%20School%20Work-white?style=plastic&logo=git" height="40" alt="SNHU School Work"/>
+      </a>
+      <a href="https://github.com/KyleGortych-eCornell">
+        <img src="https://img.shields.io/badge/-eCornell%20Python%20Cert-white?style=plastic&logo=git" height="40" alt="eCornell Cert"/>
       </a>
       <a href="https://github.com/NexisOS/NexisOS">
         <img src="https://img.shields.io/badge/-DIY%20Linux%20Distro-white?style=plastic&logo=git" height="40" alt="work examples repo"/>
