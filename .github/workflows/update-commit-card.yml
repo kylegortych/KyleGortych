@@ -30,39 +30,68 @@ jobs:
             KyleGortych-eCornell
           )
 
+          RESULTS="$RUNNER_TEMP/results"
+          CLONES="$RUNNER_TEMP/clones"
+          mkdir -p "$RESULTS" "$CLONES"
+          export RESULTS CLONES
+
+          # ---- 1. list repos (sequential; API is fast) ----
+          REPO_LIST="$RUNNER_TEMP/repos.list"
+          : > "$REPO_LIST"
+          for OWNER in "${OWNERS[@]}"; do
+            gh repo list "$OWNER" --limit 1000 \
+              --json name,isFork \
+              --jq ".[] | select(.isFork | not) | \"$OWNER/\" + .name" \
+              >> "$REPO_LIST"
+          done
+          echo "$(wc -l < "$REPO_LIST") repos to process"
+
+          # ---- 2. worker: one repo, writes only its own files ----
+          # (parallel workers must never share output files; interleaved
+          # appends from concurrent git log streams would corrupt data)
+          cat > "$RUNNER_TEMP/worker.sh" <<'WORKER'
+          #!/usr/bin/env bash
+          FULL="$1"
+          SAFE="${FULL//\//__}"
+          DIR="$CLONES/$SAFE.git"
+          OUT="$RESULTS/$SAFE"
           AUTHOR_ARGS=(
             --author=kyle.gortych@gmail.com
             --author=99693659+kylegortych@users.noreply.github.com
           )
+          rm -rf "$DIR"
+          # blob:none keeps trees (file paths) but not contents,
+          # which is what --name-only needs for language stats
+          if ! git clone --quiet --bare --filter=blob:none \
+               "https://github.com/$FULL.git" "$DIR" 2>/dev/null; then
+            rm -rf "$DIR"
+            echo "::warning::failed to clone $FULL, skipping"
+            exit 0
+          fi
+          # guards: empty/branchless repos make rev-list/log exit non-zero
+          N=$(git --git-dir="$DIR" rev-list --count --branches \
+                --fixed-strings "${AUTHOR_ARGS[@]}" 2>/dev/null || echo 0)
+          printf '%s\t%s\n' "$N" "$FULL" > "$OUT.tsv"
+          git --git-dir="$DIR" log --branches --fixed-strings \
+            "${AUTHOR_ARGS[@]}" --format=%as > "$OUT.dates" 2>/dev/null || true
+          # no rename detection: it would lazily fetch the missing blobs
+          git --git-dir="$DIR" -c diff.renames=false log --branches \
+            --fixed-strings "${AUTHOR_ARGS[@]}" --name-only --format= \
+            > "$OUT.files" 2>/dev/null || true
+          rm -rf "$DIR"
+          echo "$FULL: $N"
+          exit 0
+          WORKER
+          chmod +x "$RUNNER_TEMP/worker.sh"
 
-          REPOS_TSV="$RUNNER_TEMP/repos.tsv"   # <count>\t<owner/repo>
-          DATES_TXT="$RUNNER_TEMP/dates.txt"   # one YYYY-MM-DD per commit
-          : > "$REPOS_TSV"
-          : > "$DATES_TXT"
+          # ---- 3. run workers in parallel (clone is network-bound) ----
+          xargs -a "$REPO_LIST" -P 6 -n 1 "$RUNNER_TEMP/worker.sh"
 
-          for OWNER in "${OWNERS[@]}"; do
-            echo "::group::$OWNER"
-            while read -r REPO; do
-              [ -z "$REPO" ] && continue
-              DIR="$RUNNER_TEMP/repo.git"
-              rm -rf "$DIR"
-              if ! git clone --quiet --bare --filter=tree:0 \
-                   "https://github.com/$OWNER/$REPO.git" "$DIR"; then
-                echo "::warning::failed to clone $OWNER/$REPO, skipping"
-                continue
-              fi
-              N=$(git --git-dir="$DIR" rev-list --count --branches \
-                    --fixed-strings "${AUTHOR_ARGS[@]}")
-              echo "$OWNER/$REPO: $N"
-              printf '%s\t%s/%s\n' "$N" "$OWNER" "$REPO" >> "$REPOS_TSV"
-              # author dates of every one of my commits, any branch
-              git --git-dir="$DIR" log --branches --fixed-strings \
-                "${AUTHOR_ARGS[@]}" --format=%as >> "$DATES_TXT"
-            done < <(gh repo list "$OWNER" --limit 1000 \
-                       --json name,isFork \
-                       --jq '.[] | select(.isFork | not) | .name')
-            echo "::endgroup::"
-          done
+          # ---- 4. aggregate (sequential, race-free) ----
+          find "$RESULTS" -name '*.tsv'   -exec cat {} + > "$RUNNER_TEMP/repos.tsv"
+          find "$RESULTS" -name '*.dates' -exec cat {} + > "$RUNNER_TEMP/dates.txt"
+          find "$RESULTS" -name '*.files' -exec cat {} + > "$RUNNER_TEMP/files.txt"
+          echo "total: $(awk -F'\t' '{s+=$1} END {print s}' "$RUNNER_TEMP/repos.tsv") commits"
 
       - name: Render SVG card
         run: |
@@ -85,6 +114,31 @@ jobs:
           active_repos = sum(1 for n, _ in repos if n > 0)
           first_year = min(dates)[:4] if dates else "-"
 
+          # ---- languages: by extension of files touched in my commits ----
+          EXT_LANG = {
+              "rs": "Rust", "nix": "Nix", "py": "Python", "java": "Java",
+              "js": "JavaScript", "jsx": "JavaScript", "mjs": "JavaScript",
+              "ts": "TypeScript", "tsx": "TypeScript",
+              "html": "HTML", "htm": "HTML", "hbs": "HTML",
+              "css": "CSS", "scss": "CSS",
+              "go": "Go", "php": "PHP", "sql": "SQL",
+              "sh": "Shell", "bash": "Shell", "fish": "Shell",
+              "ps1": "PowerShell", "el": "Emacs Lisp",
+              "c": "C", "h": "C", "cpp": "C++", "hpp": "C++",
+              "lua": "Lua", "vim": "Vim Script",
+          }
+          langs = Counter()
+          with open(f"{tmp}/files.txt", encoding="utf-8", errors="replace") as f:
+              for line in f:
+                  path = line.strip()
+                  if not path or "." not in path.rsplit("/", 1)[-1]:
+                      continue
+                  ext = path.rsplit(".", 1)[-1].lower()
+                  if ext in EXT_LANG:
+                      langs[EXT_LANG[ext]] += 1
+          top_langs = langs.most_common(5)
+          lang_total = sum(langs.values()) or 1
+
           # last 12 calendar months, oldest -> newest
           today = date.today()
           months = []
@@ -99,16 +153,21 @@ jobs:
           counts = [per_month.get(mo, 0) for mo in months]
           peak = max(counts) or 1
 
-          # ---- theme (matches dracula bg_color=171717 / title_color=cc0000) ----
-          BG, BORDER = "#171717", "#2f2f2f"
-          TITLE, TEXT, MUTED, BAR = "#cc0000", "#c9d1d9", "#8b949e", "#cc0000"
-          W, H = 495, 240
+          # ---- molokai theme: dark grey / white / blue ----
+          BG, BORDER = "#1B1D1E", "#3E3D32"
+          TITLE, TEXT, MUTED, BAR = "#66D9EF", "#F8F8F2", "#7E8E91", "#66D9EF"
+          LANG_COLORS = ["#66D9EF", "#A6E22E", "#F92672", "#FD971F", "#AE81FF"]
+          W, H = 495, 320
           FONT = "font-family=\"'Segoe UI',Ubuntu,Sans-Serif\""
 
+          def short(full, limit=28):
+              name = full.split("/", 1)[1]
+              return name if len(name) <= limit else name[: limit - 1] + "\u2026"
+
           top3 = "".join(
-              f'<text x="25" y="{118 + i * 22}" {FONT} font-size="12" fill="{TEXT}">'
-              f'{html.escape(name)}'
-              f'<tspan fill="{MUTED}">  ·  {n} commits</tspan></text>'
+              f'<text x="25" y="{118 + i * 22}" {FONT} font-size="12" '
+              f'fill="{TEXT}">{html.escape(short(name))}'
+              f'<tspan fill="{MUTED}"> \u00b7 {n}</tspan></text>'
               for i, (n, name) in enumerate(repos[:3]) if n > 0
           )
 
@@ -126,24 +185,52 @@ jobs:
                    f'font-size="10" fill="{MUTED}" text-anchor="end">'
                    f'{months[-1][2:].replace("-", "/")}</text>')
 
-          svg = f'''<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}"
-            xmlns="http://www.w3.org/2000/svg" role="img"
-            aria-label="Commit activity across all branches and organizations">
-            <rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="4.5"
-              fill="{BG}" stroke="{BORDER}"/>
-            <text x="25" y="35" {FONT} font-size="18" font-weight="600"
-              fill="{TITLE}">Commit Activity — All Branches &amp; Orgs</text>
-            <text x="25" y="78" {FONT} font-size="32" font-weight="700"
-              fill="{TEXT}">{total:,}</text>
-            <text x="25" y="94" {FONT} font-size="11" fill="{MUTED}">
-              total commits · {active_repos} repos · since {first_year}</text>
-            {top3}
-            <text x="{bx}" y="{base - bh - 14}" {FONT} font-size="11"
-              fill="{MUTED}">last 12 months</text>
-            {bars}
-            <text x="25" y="{H - 14}" {FONT} font-size="9" fill="{MUTED}">
-              counted from git history · updated weekly</text>
-          </svg>'''
+          # ---- language section: stacked bar + legend ----
+          lx, lw, ly, lh = 25, W - 50, 246, 8
+          lang_svg = (f'<text x="{lx}" y="{ly - 8}" {FONT} font-size="11" '
+                      f'fill="{MUTED}">languages \u00b7 by files touched</text>'
+                      f'<clipPath id="langbar"><rect x="{lx}" y="{ly}" '
+                      f'width="{lw}" height="{lh}" rx="4"/></clipPath>'
+                      f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" '
+                      f'rx="4" fill="{BORDER}"/><g clip-path="url(#langbar)">')
+          cx = float(lx)
+          for i, (lang, n) in enumerate(top_langs):
+              seg = lw * n / lang_total
+              lang_svg += (f'<rect x="{cx:.1f}" y="{ly}" width="{seg:.1f}" '
+                           f'height="{lh}" fill="{LANG_COLORS[i]}"/>')
+              cx += seg
+          lang_svg += "</g>"
+          for i, (lang, n) in enumerate(top_langs):
+              ex = lx + i * 90
+              ey = ly + 26
+              pct = round(100 * n / lang_total)
+              lang_svg += (f'<circle cx="{ex + 4}" cy="{ey - 4}" r="4" '
+                           f'fill="{LANG_COLORS[i]}"/>'
+                           f'<text x="{ex + 13}" y="{ey}" {FONT} font-size="10" '
+                           f'fill="{TEXT}">{html.escape(lang)} '
+                           f'<tspan fill="{MUTED}">{pct}%</tspan></text>')
+
+          svg = (
+              f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
+              f'xmlns="http://www.w3.org/2000/svg" role="img" '
+              f'aria-label="Commit activity across all branches and organizations">'
+              f'<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="4.5" '
+              f'fill="{BG}" stroke="{BORDER}"/>'
+              f'<text x="25" y="35" {FONT} font-size="18" font-weight="600" '
+              f'fill="{TITLE}">Commit Activity \u2014 All Branches &amp; Orgs</text>'
+              f'<text x="25" y="78" {FONT} font-size="32" font-weight="700" '
+              f'fill="{TEXT}">{total:,}</text>'
+              f'<text x="25" y="94" {FONT} font-size="11" fill="{MUTED}">'
+              f'total commits \u00b7 {active_repos} repos \u00b7 since {first_year}</text>'
+              f'{top3}'
+              f'<text x="{bx}" y="{base - bh - 14}" {FONT} font-size="11" '
+              f'fill="{MUTED}">last 12 months</text>'
+              f'{bars}'
+              f'{lang_svg}'
+              f'<text x="25" y="{H - 14}" {FONT} font-size="9" fill="{MUTED}">'
+              f'counted from git history \u00b7 updated weekly</text>'
+              f'</svg>'
+          )
 
           os.makedirs("assets", exist_ok=True)
           with open("assets/commit-card.svg", "w", encoding="utf-8") as f:
