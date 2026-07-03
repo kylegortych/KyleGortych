@@ -1,7 +1,7 @@
 <div id="header" align="center">
   <img src="https://raw.githubusercontent.com/kylegortych/KyleGortych/refs/heads/main/hero.gif" width="100%" alt="img">
 </div>
-<br><br><br>
+<br>
 <!-- Centered badges -->
 <div align="center" id="badges">
   <h3>Sample Work</h3>
@@ -12,7 +12,7 @@
   </a>
 </div>
 
-<br>
+
 
 <!-- Repositories dropdown -->
 <div align="center">
@@ -37,9 +37,6 @@
 
 <br><br>
 
-<h1 align="center">Hey there <img src="https://raw.githubusercontent.com/KyleGortych/KyleGortych/main/waving.webp" width="40"></h1>
-
-
 ### :man_technologist: About Me :
 
 I’m Kyle, I am a Jr. Software Developer.
@@ -54,7 +51,8 @@ I’m Kyle, I am a Jr. Software Developer.
 
 ### :hammer_and_wrench: Tools :
 
-<h3 align="center">Kenzie Accademy Stack</h3>
+<h3 align="center"><a href="https://github.com/KyleGortych-Kenzie-Academy-Group-Work/capstone-smartgrocery">Kenzie Academy</a></h3>
+<p align="center">Group capstone "SmartGrocery" a multi-module Gradle Java application deployed as an AWS Lambda microservice with DynamoDB persistence, CloudFormation infrastructure-as-code, and an automated CI/CD pipeline.</p>
 <div align="center">
   
 | Cloud Service | Build System | Languages | Framework |
@@ -66,15 +64,20 @@ I’m Kyle, I am a Jr. Software Developer.
 | <img src="https://img.shields.io/badge/%F0%9F%97%A1%20Dagger-white?style=plastic" title="Dagger" alt="Dagger" height="30"/> | <img src="https://img.shields.io/badge/Mockito-white?style=plastic" title="Mockito" alt="Mockito" height="30"/> | <img src="https://img.shields.io/badge/Jedis%2FRedis-white?style=plastic&logo=redis&logoColor=dark%20red" title="Jedis" alt="Jedis" height="30"/> | <img src="https://img.shields.io/badge/DynamoDB-white?style=plastic&logo=Amazon%20DynamoDB&logoColor=black" title="dynamodb" alt="dynamodb" height="30"/> | <img src="https://img.shields.io/badge/Docker-white?style=plastic&logo=docker&logoColor=blue" title="docker" alt="docker" height="30"/> |
 </div>
 
-<h3 align="center">Server Managment Stack</h3>
+<br>
 
+<h3 align="center"><a href="https://github.com/KyleGortych-SNHU/cs-465-full-stack-development-i/tree/module7">MEAN Stack</a></h3>
+<p align="center">Full stack travel application, server-rendered Express/Handlebars frontend, Angular SPA admin interface, and a secured RESTful API.</p>
 <div align="center">
-  
-| OS | CLI | Languages | Server | Database | 
-| -- | --- | --------- | ------ | -------- |
-| <img src="https://img.shields.io/badge/WSL-white?style=plastic&logo=linux&logoColor=black" title="wsl" alt="wsl" height="30"/> | <img src="https://img.shields.io/badge/PowerShell-white?style=plastic&logo=powershell&logoColor=blue" title="PowerShell" alt="PowerShell" height="30"/> | <img src="https://img.shields.io/badge/PHP-white?style=plastic&logo=php&logoColor=blue" title="php" alt="php" height="30"/> | <img src="https://custom-icon-badges.demolab.com/badge/IIS-white.svg?&sytle=plastic&logo=IIS" title="IIS" alt="IIS" height="30"/> | <img src="https://img.shields.io/badge/MySQL-white?style=plastic&logo=mysql&logoColor=blue" title="MySQL"  alt="MySQL" height="30"/> |
-</div>
 
+| Database | Backend | Frontend | Runtime |
+| -------- | ------- | -------- | ------- |
+| <img src="https://img.shields.io/badge/MongoDB%2FMongoose-white?style=plastic&logo=mongodb&logoColor=green" title="MongoDB / Mongoose" alt="MongoDB" height="30"/> | <img src="https://img.shields.io/badge/Express-white?style=plastic&logo=express&logoColor=black" title="Express" alt="Express" height="30"/> | <img src="https://img.shields.io/badge/Angular-white?style=plastic&logo=angular&logoColor=red" title="Angular" alt="Angular" height="30"/> | <img src="https://img.shields.io/badge/Node.js-white?style=plastic&logo=node.js&logoColor=green" title="Node.js" alt="Node.js" height="30"/> |
+
+| Authentication | Templating | Testing | CI/CD | Virtualization |
+| -------------- | ---------- | ------- | ----- | ------------- |
+| <img src="https://img.shields.io/badge/Passport%2FJWT-white?style=plastic&logo=jsonwebtokens&logoColor=black" title="Passport / JWT" alt="Passport / JWT" height="30"/> | <img src="https://img.shields.io/badge/Handlebars-white?style=plastic&logo=handlebarsdotjs&logoColor=black" title="Handlebars" alt="Handlebars" height="30"/> | <img src="https://img.shields.io/badge/Mocha%2FChai-white?style=plastic&logo=mocha&logoColor=brown" title="Mocha / Chai / Sinon / Supertest" alt="Mocha / Chai" height="30"/> | <img src="https://img.shields.io/badge/GitHub%20Actions-white?style=plastic&logo=githubactions&logoColor=blue" title="GitHub Actions" alt="GitHub Actions" height="30"/> | <img src="https://img.shields.io/badge/Docker-white?style=plastic&logo=docker&logoColor=blue" title="docker" alt="docker" height="30"/> |
+</div>
 
 <h3 align="center">Misc.</h3>
 <div align="center">
@@ -89,6 +92,14 @@ I’m Kyle, I am a Jr. Software Developer.
     <img src="https://img.shields.io/badge/Rust-white?style=plastic&logo=Rust&logoColor=red" title="Rust" alt="Rust" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/GoLang-white?style=plastic&logo=go&logoColor=blue" title="Go" alt="Go" height="30"/>&nbsp;
     <img src="https://img.shields.io/badge/nix-white?style=plastic&logo=nixos&logoColor=blue" title="nix" alt="nix" height="30"/>&nbsp;
+  </div>
+
+  <div>
+    <img src="https://img.shields.io/badge/WSL-white?style=plastic&logo=linux&logoColor=black" title="wsl" alt="wsl" height="30"/>
+    <img src="https://img.shields.io/badge/PowerShell-white?style=plastic&logo=powershell&logoColor=blue" title="PowerShell" alt="PowerShell" height="30"/>
+    <img src="https://img.shields.io/badge/PHP-white?style=plastic&logo=php&logoColor=blue" title="php" alt="php" height="30"/>
+    <img src="https://custom-icon-badges.demolab.com/badge/IIS-white.svg?&sytle=plastic&logo=IIS" title="IIS" alt="IIS" height="30"/>
+    <img src="https://img.shields.io/badge/MySQL-white?style=plastic&logo=mysql&logoColor=blue" title="MySQL"  alt="MySQL" height="30"/>
   </div>
 </div>
 
