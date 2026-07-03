@@ -1,0 +1,163 @@
+name: Update Commit Card
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * 1" # Mondays 05:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout profile repo
+        uses: actions/checkout@v4
+
+      - name: Gather commit data across all branches
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          OWNERS=(
+            KyleGortych
+            NexisOS
+            KyleGortych-Kenzie-Academy-Group-Work
+            KyleGortych-SNHU
+            KyleGortych-eCornell
+          )
+
+          AUTHOR_ARGS=(
+            --author=kyle.gortych@gmail.com
+            --author=99693659+kylegortych@users.noreply.github.com
+          )
+
+          REPOS_TSV="$RUNNER_TEMP/repos.tsv"   # <count>\t<owner/repo>
+          DATES_TXT="$RUNNER_TEMP/dates.txt"   # one YYYY-MM-DD per commit
+          : > "$REPOS_TSV"
+          : > "$DATES_TXT"
+
+          for OWNER in "${OWNERS[@]}"; do
+            echo "::group::$OWNER"
+            while read -r REPO; do
+              [ -z "$REPO" ] && continue
+              DIR="$RUNNER_TEMP/repo.git"
+              rm -rf "$DIR"
+              if ! git clone --quiet --bare --filter=tree:0 \
+                   "https://github.com/$OWNER/$REPO.git" "$DIR"; then
+                echo "::warning::failed to clone $OWNER/$REPO, skipping"
+                continue
+              fi
+              N=$(git --git-dir="$DIR" rev-list --count --branches \
+                    --fixed-strings "${AUTHOR_ARGS[@]}")
+              echo "$OWNER/$REPO: $N"
+              printf '%s\t%s/%s\n' "$N" "$OWNER" "$REPO" >> "$REPOS_TSV"
+              # author dates of every one of my commits, any branch
+              git --git-dir="$DIR" log --branches --fixed-strings \
+                "${AUTHOR_ARGS[@]}" --format=%as >> "$DATES_TXT"
+            done < <(gh repo list "$OWNER" --limit 1000 \
+                       --json name,isFork \
+                       --jq '.[] | select(.isFork | not) | .name')
+            echo "::endgroup::"
+          done
+
+      - name: Render SVG card
+        run: |
+          python3 <<'PY'
+          import os, html
+          from collections import Counter
+          from datetime import date
+
+          tmp = os.environ["RUNNER_TEMP"]
+
+          repos = []  # (count, "owner/repo")
+          with open(f"{tmp}/repos.tsv", encoding="utf-8") as f:
+              for line in f:
+                  n, name = line.rstrip("\n").split("\t")
+                  repos.append((int(n), name))
+          repos.sort(reverse=True)
+
+          dates = [d.strip() for d in open(f"{tmp}/dates.txt", encoding="utf-8") if d.strip()]
+          total = sum(n for n, _ in repos)
+          active_repos = sum(1 for n, _ in repos if n > 0)
+          first_year = min(dates)[:4] if dates else "-"
+
+          # last 12 calendar months, oldest -> newest
+          today = date.today()
+          months = []
+          y, m = today.year, today.month
+          for _ in range(12):
+              months.append(f"{y:04d}-{m:02d}")
+              m -= 1
+              if m == 0:
+                  y, m = y - 1, 12
+          months.reverse()
+          per_month = Counter(d[:7] for d in dates)
+          counts = [per_month.get(mo, 0) for mo in months]
+          peak = max(counts) or 1
+
+          # ---- theme (matches dracula bg_color=171717 / title_color=cc0000) ----
+          BG, BORDER = "#171717", "#2f2f2f"
+          TITLE, TEXT, MUTED, BAR = "#cc0000", "#c9d1d9", "#8b949e", "#cc0000"
+          W, H = 495, 240
+          FONT = "font-family=\"'Segoe UI',Ubuntu,Sans-Serif\""
+
+          top3 = "".join(
+              f'<text x="25" y="{118 + i * 22}" {FONT} font-size="12" fill="{TEXT}">'
+              f'{html.escape(name)}'
+              f'<tspan fill="{MUTED}">  ·  {n} commits</tspan></text>'
+              for i, (n, name) in enumerate(repos[:3]) if n > 0
+          )
+
+          # histogram: 12 bars, right-hand block
+          bx, bw, gap, bh, base = 300, 12, 3, 70, 190
+          bars = ""
+          for i, c in enumerate(counts):
+              h = max(2, round(bh * c / peak))
+              x = bx + i * (bw + gap)
+              bars += (f'<rect x="{x}" y="{base - h}" width="{bw}" height="{h}" '
+                       f'rx="2" fill="{BAR}" fill-opacity="{0.35 + 0.65 * c / peak:.2f}"/>')
+          bars += (f'<text x="{bx}" y="{base + 16}" {FONT} font-size="10" '
+                   f'fill="{MUTED}">{months[0][2:].replace("-", "/")}</text>'
+                   f'<text x="{bx + 11 * (bw + gap) + bw}" y="{base + 16}" {FONT} '
+                   f'font-size="10" fill="{MUTED}" text-anchor="end">'
+                   f'{months[-1][2:].replace("-", "/")}</text>')
+
+          svg = f'''<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}"
+            xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Commit activity across all branches and organizations">
+            <rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="4.5"
+              fill="{BG}" stroke="{BORDER}"/>
+            <text x="25" y="35" {FONT} font-size="18" font-weight="600"
+              fill="{TITLE}">Commit Activity — All Branches &amp; Orgs</text>
+            <text x="25" y="78" {FONT} font-size="32" font-weight="700"
+              fill="{TEXT}">{total:,}</text>
+            <text x="25" y="94" {FONT} font-size="11" fill="{MUTED}">
+              total commits · {active_repos} repos · since {first_year}</text>
+            {top3}
+            <text x="{bx}" y="{base - bh - 14}" {FONT} font-size="11"
+              fill="{MUTED}">last 12 months</text>
+            {bars}
+            <text x="25" y="{H - 14}" {FONT} font-size="9" fill="{MUTED}">
+              counted from git history · updated weekly</text>
+          </svg>'''
+
+          os.makedirs("assets", exist_ok=True)
+          with open("assets/commit-card.svg", "w", encoding="utf-8") as f:
+              f.write(svg)
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/commit-card.svg
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "chore: update commit card"
+          git push
