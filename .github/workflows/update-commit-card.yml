@@ -87,34 +87,27 @@ jobs:
           # ---- 3. run workers in parallel (clone is network-bound) ----
           xargs -a "$REPO_LIST" -P 6 -n 1 "$RUNNER_TEMP/worker.sh"
 
-          # ---- 4. aggregate (sequential, race-free) ----
-          find "$RESULTS" -name '*.tsv'   -exec cat {} + > "$RUNNER_TEMP/repos.tsv"
-          find "$RESULTS" -name '*.dates' -exec cat {} + > "$RUNNER_TEMP/dates.txt"
-          find "$RESULTS" -name '*.files' -exec cat {} + > "$RUNNER_TEMP/files.txt"
-          echo "total: $(awk -F'\t' '{s+=$1} END {print s}' "$RUNNER_TEMP/repos.tsv") commits"
+          echo "processed $(find "$RESULTS" -name '*.tsv' | wc -l) repos"
 
       - name: Render SVG card
         run: |
           python3 <<'PY'
           import os, html
-          from collections import Counter
+          from collections import Counter, defaultdict
           from datetime import date
 
           tmp = os.environ["RUNNER_TEMP"]
+          results = os.path.join(tmp, "results")
 
-          repos = []  # (count, "owner/repo")
-          with open(f"{tmp}/repos.tsv", encoding="utf-8") as f:
-              for line in f:
-                  n, name = line.rstrip("\n").split("\t")
-                  repos.append((int(n), name))
-          repos.sort(reverse=True)
+          # order here is the display fallback; rows sort by commits
+          OWNER_LABELS = {
+              "KyleGortych": "Personal",
+              "NexisOS": "NexisOS",
+              "KyleGortych-Kenzie-Academy-Group-Work": "Kenzie Academy",
+              "KyleGortych-SNHU": "SNHU",
+              "KyleGortych-eCornell": "eCornell",
+          }
 
-          dates = [d.strip() for d in open(f"{tmp}/dates.txt", encoding="utf-8") if d.strip()]
-          total = sum(n for n, _ in repos)
-          active_repos = sum(1 for n, _ in repos if n > 0)
-          first_year = min(dates)[:4] if dates else "-"
-
-          # ---- languages: by extension of files touched in my commits ----
           EXT_LANG = {
               "rs": "Rust", "nix": "Nix", "py": "Python", "java": "Java",
               "js": "JavaScript", "jsx": "JavaScript", "mjs": "JavaScript",
@@ -127,17 +120,37 @@ jobs:
               "c": "C", "h": "C", "cpp": "C++", "hpp": "C++",
               "lua": "Lua", "vim": "Vim Script",
           }
-          langs = Counter()
-          with open(f"{tmp}/files.txt", encoding="utf-8", errors="replace") as f:
-              for line in f:
-                  path = line.strip()
-                  if not path or "." not in path.rsplit("/", 1)[-1]:
-                      continue
-                  ext = path.rsplit(".", 1)[-1].lower()
-                  if ext in EXT_LANG:
-                      langs[EXT_LANG[ext]] += 1
-          top_langs = langs.most_common(5)
-          lang_total = sum(langs.values()) or 1
+
+          # ---- read per-repo results, attributing to owners ----
+          repo_counts = []                     # (n, "owner/repo")
+          owner_commits = Counter()
+          owner_langs = defaultdict(Counter)   # owner -> Counter(lang)
+          dates = []
+
+          for fn in os.listdir(results):
+              path = os.path.join(results, fn)
+              safe, ext = fn.rsplit(".", 1)
+              owner = safe.split("__", 1)[0]
+              if ext == "tsv":
+                  for line in open(path, encoding="utf-8"):
+                      n, name = line.rstrip("\n").split("\t")
+                      repo_counts.append((int(n), name))
+                      owner_commits[owner] += int(n)
+              elif ext == "dates":
+                  dates += [d.strip() for d in open(path, encoding="utf-8") if d.strip()]
+              elif ext == "files":
+                  for line in open(path, encoding="utf-8", errors="replace"):
+                      p = line.strip()
+                      if not p or "." not in p.rsplit("/", 1)[-1]:
+                          continue
+                      e = p.rsplit(".", 1)[-1].lower()
+                      if e in EXT_LANG:
+                          owner_langs[owner][EXT_LANG[e]] += 1
+
+          repo_counts.sort(reverse=True)
+          total = sum(n for n, _ in repo_counts)
+          active_repos = sum(1 for n, _ in repo_counts if n > 0)
+          first_year = min(dates)[:4] if dates else "-"
 
           # last 12 calendar months, oldest -> newest
           today = date.today()
@@ -156,9 +169,17 @@ jobs:
           # ---- molokai theme: dark grey / white / blue ----
           BG, BORDER = "#1B1D1E", "#3E3D32"
           TITLE, TEXT, MUTED, BAR = "#66D9EF", "#F8F8F2", "#7E8E91", "#66D9EF"
-          LANG_COLORS = ["#66D9EF", "#A6E22E", "#F92672", "#FD971F", "#AE81FF"]
-          W, H = 495, 320
+          PALETTE = ["#66D9EF", "#A6E22E", "#F92672", "#FD971F", "#AE81FF", "#E6DB74"]
+          OTHER_COLOR = "#5F5F5F"
+          W, H = 495, 410
           FONT = "font-family=\"'Segoe UI',Ubuntu,Sans-Serif\""
+
+          # one color per language, consistent across all owner rows
+          global_langs = Counter()
+          for c in owner_langs.values():
+              global_langs.update(c)
+          lang_order = [l for l, _ in global_langs.most_common(len(PALETTE))]
+          color_of = {l: PALETTE[i] for i, l in enumerate(lang_order)}
 
           def short(full, limit=28):
               name = full.split("/", 1)[1]
@@ -168,16 +189,16 @@ jobs:
               f'<text x="25" y="{118 + i * 22}" {FONT} font-size="12" '
               f'fill="{TEXT}">{html.escape(short(name))}'
               f'<tspan fill="{MUTED}"> \u00b7 {n}</tspan></text>'
-              for i, (n, name) in enumerate(repos[:3]) if n > 0
+              for i, (n, name) in enumerate(repo_counts[:3]) if n > 0
           )
 
           # histogram: 12 bars, right-hand block
           bx, bw, gap, bh, base = 300, 12, 3, 70, 190
           bars = ""
           for i, c in enumerate(counts):
-              h = max(2, round(bh * c / peak))
+              hgt = max(2, round(bh * c / peak))
               x = bx + i * (bw + gap)
-              bars += (f'<rect x="{x}" y="{base - h}" width="{bw}" height="{h}" '
+              bars += (f'<rect x="{x}" y="{base - hgt}" width="{bw}" height="{hgt}" '
                        f'rx="2" fill="{BAR}" fill-opacity="{0.35 + 0.65 * c / peak:.2f}"/>')
           bars += (f'<text x="{bx}" y="{base + 16}" {FONT} font-size="10" '
                    f'fill="{MUTED}">{months[0][5:]}/{months[0][2:4]}</text>'
@@ -185,30 +206,62 @@ jobs:
                    f'font-size="10" fill="{MUTED}" text-anchor="end">'
                    f'{months[-1][5:]}/{months[-1][2:4]}</text>')
 
-          # ---- language section: stacked bar + legend ----
-          lx, lw, ly, lh = 25, W - 50, 246, 8
-          lang_svg = (f'<text x="{lx}" y="{ly - 8}" {FONT} font-size="11" '
-                      f'fill="{MUTED}">languages \u00b7 by files touched</text>'
-                      f'<clipPath id="langbar"><rect x="{lx}" y="{ly}" '
-                      f'width="{lw}" height="{lh}" rx="4"/></clipPath>'
-                      f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" '
-                      f'rx="4" fill="{BORDER}"/><g clip-path="url(#langbar)">')
-          cx = float(lx)
-          for i, (lang, n) in enumerate(top_langs):
-              seg = lw * n / lang_total
-              lang_svg += (f'<rect x="{cx:.1f}" y="{ly}" width="{seg:.1f}" '
-                           f'height="{lh}" fill="{LANG_COLORS[i]}"/>')
-              cx += seg
-          lang_svg += "</g>"
-          for i, (lang, n) in enumerate(top_langs):
-              ex = lx + i * 90
-              ey = ly + 26
-              pct = round(100 * n / lang_total)
-              lang_svg += (f'<circle cx="{ex + 4}" cy="{ey - 4}" r="4" '
-                           f'fill="{LANG_COLORS[i]}"/>'
-                           f'<text x="{ex + 13}" y="{ey}" {FONT} font-size="10" '
-                           f'fill="{TEXT}">{html.escape(lang)} '
-                           f'<tspan fill="{MUTED}">{pct}%</tspan></text>')
+          # ---- per-owner section: commits + language bar per row ----
+          rows = sorted(OWNER_LABELS, key=lambda o: -owner_commits.get(o, 0))
+          rx0, rbw = 205, 165     # language bar x and width
+          owner_svg = (f'<text x="25" y="234" {FONT} font-size="11" '
+                       f'fill="{MUTED}">by owner \u00b7 commits &amp; languages</text>')
+          any_other = False
+          for i, owner in enumerate(rows):
+              yb = 256 + i * 24   # text baseline
+              label = OWNER_LABELS[owner]
+              n = owner_commits.get(owner, 0)
+              lc = owner_langs.get(owner, Counter())
+              o_total = sum(lc.values())
+              owner_svg += (
+                  f'<text x="25" y="{yb}" {FONT} font-size="11" '
+                  f'fill="{TEXT}">{html.escape(label)}</text>'
+                  f'<text x="195" y="{yb}" {FONT} font-size="11" '
+                  f'fill="{MUTED}" text-anchor="end">{n}</text>'
+                  f'<clipPath id="row{i}"><rect x="{rx0}" y="{yb - 9}" '
+                  f'width="{rbw}" height="8" rx="4"/></clipPath>'
+                  f'<rect x="{rx0}" y="{yb - 9}" width="{rbw}" height="8" '
+                  f'rx="4" fill="{BORDER}"/>')
+              if o_total:
+                  segs = [(color_of[l], lc[l]) for l in lang_order if lc.get(l)]
+                  other = o_total - sum(c for _, c in segs)
+                  if other:
+                      segs.append((OTHER_COLOR, other))
+                      any_other = True
+                  owner_svg += f'<g clip-path="url(#row{i})">'
+                  cx = float(rx0)
+                  for color, cnt in segs:
+                      seg_w = rbw * cnt / o_total
+                      owner_svg += (f'<rect x="{cx:.1f}" y="{yb - 9}" '
+                                    f'width="{seg_w:.1f}" height="8" fill="{color}"/>')
+                      cx += seg_w
+                  owner_svg += "</g>"
+                  top_lang, top_n = lc.most_common(1)[0]
+                  owner_svg += (f'<text x="380" y="{yb}" {FONT} font-size="10" '
+                                f'fill="{TEXT}">{html.escape(top_lang)} '
+                                f'<tspan fill="{MUTED}">{round(100 * top_n / o_total)}%'
+                                f'</tspan></text>')
+              else:
+                  owner_svg += (f'<text x="380" y="{yb}" {FONT} font-size="10" '
+                                f'fill="{MUTED}">\u2014</text>')
+
+          # shared legend: language -> color, decoded once for all rows
+          entries = [(l, color_of[l]) for l in lang_order]
+          if any_other:
+              entries.append(("Other", OTHER_COLOR))
+          ly = 382
+          cx = 25.0
+          for lang, color in entries:
+              owner_svg += (f'<circle cx="{cx + 4:.1f}" cy="{ly - 4}" r="4" '
+                            f'fill="{color}"/>'
+                            f'<text x="{cx + 12:.1f}" y="{ly}" {FONT} '
+                            f'font-size="10" fill="{MUTED}">{html.escape(lang)}</text>')
+              cx += 12 + len(lang) * 5.6 + 14
 
           svg = (
               f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
@@ -226,8 +279,8 @@ jobs:
               f'<text x="{bx}" y="{base - bh - 14}" {FONT} font-size="11" '
               f'fill="{MUTED}">last 12 months</text>'
               f'{bars}'
-              f'{lang_svg}'
-              f'<text x="25" y="{H - 14}" {FONT} font-size="9" fill="{MUTED}">'
+              f'{owner_svg}'
+              f'<text x="25" y="{H - 12}" {FONT} font-size="9" fill="{MUTED}">'
               f'counted from git history \u00b7 updated weekly</text>'
               f'</svg>'
           )
