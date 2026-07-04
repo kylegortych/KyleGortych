@@ -270,7 +270,7 @@ jobs:
               f'<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="4.5" '
               f'fill="{BG}" stroke="{BORDER}"/>'
               f'<text x="25" y="35" {FONT} font-size="18" font-weight="600" '
-              f'fill="{TITLE}">Commit Activity \u2014 All Branches &amp; Orgs</text>'
+              f'fill="{TITLE}">Commit Activity for All Branches &amp; Orgs</text>'
               f'<text x="25" y="78" {FONT} font-size="32" font-weight="700" '
               f'fill="{TEXT}">{total:,}</text>'
               f'<text x="25" y="94" {FONT} font-size="11" fill="{MUTED}">'
