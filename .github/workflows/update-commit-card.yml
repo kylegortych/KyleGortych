@@ -180,10 +180,10 @@ jobs:
               bars += (f'<rect x="{x}" y="{base - h}" width="{bw}" height="{h}" '
                        f'rx="2" fill="{BAR}" fill-opacity="{0.35 + 0.65 * c / peak:.2f}"/>')
           bars += (f'<text x="{bx}" y="{base + 16}" {FONT} font-size="10" '
-                   f'fill="{MUTED}">{months[0][2:].replace("-", "/")}</text>'
+                   f'fill="{MUTED}">{months[0][5:]}/{months[0][2:4]}</text>'
                    f'<text x="{bx + 11 * (bw + gap) + bw}" y="{base + 16}" {FONT} '
                    f'font-size="10" fill="{MUTED}" text-anchor="end">'
-                   f'{months[-1][2:].replace("-", "/")}</text>')
+                   f'{months[-1][5:]}/{months[-1][2:4]}</text>')
 
           # ---- language section: stacked bar + legend ----
           lx, lw, ly, lh = 25, W - 50, 246, 8
