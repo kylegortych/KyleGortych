@@ -41,11 +41,13 @@
 
 I’m Kyle, I am a Jr. Software Developer.
 #### :school: Education
+- :scroll: Pursuing a Master's degree in Computer Science with a focus on AI from SNHU
+- :scroll: Bachelor's degree in Computer Science from SNHU
 - :scroll: Associate degree in Computer Information Technology(CIT) from Middlesex Community College
 - :scroll: Certificate in Python from eCornell
 - :scroll: Certificate in Software Enginering Backend Development from Kenzie Academy
-- :scroll: Pursuing a Bachelor's degree in Computer Science from SNHU
-- :mailbox: How to reach me kyle.gortych.dev@gmail.com
+
+:mailbox: How to reach me kyle.gortych.dev@gmail.com
 
 ---
 
